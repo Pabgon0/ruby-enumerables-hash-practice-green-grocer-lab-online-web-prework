@@ -48,9 +48,11 @@ def checkout(cart, coupons)
 total_cost = 0
 cart = consolidate_cart(cart)
 coupon_cart = apply_coupons(cart, coupons)
-clearance_cart = apply_clearance(coupon_cart)
+final_cart = apply_clearance(coupon_cart)
 
-
+final_cart.each do |item_name, data|
+  total_cost += data[:price] * data[:count]
+end
 
   if total_cost > 100.0 == true
     total_cost = (total_cost * 0.90).round(2)
