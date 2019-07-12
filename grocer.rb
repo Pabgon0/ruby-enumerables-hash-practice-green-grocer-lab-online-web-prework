@@ -47,6 +47,8 @@ end
 def checkout(cart, coupons)
 total_cost = 0
 cart = consolidate_cart(cart)
+coupon_cart = apply_coupons(cart, coupons)
+clearance_cart = apply_clearance(coupon_cart)
 
 if cart.length >= 1
 end
